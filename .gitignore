@@ -1,0 +1,5 @@
+# Le fichier contenant tes secrets
+.env
+
+# Les dossiers de cache de Python
+__pycache__/
