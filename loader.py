@@ -2,11 +2,16 @@ import os
 import time
 import psycopg2
 
-DB_HOST = os.getenv("DB_HOST", "localhost")
-DB_NAME = os.getenv("DB_NAME", "artisell")
-DB_USER = os.getenv("DB_USER", "postgres")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "postgres")
+# Récupération sécurisée sans valeurs par défaut sensibles en dur
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME", "artisell") # Nom de DB tolérable par défaut si nécessaire
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_PORT = os.getenv("DB_PORT", "5432")
+
+# Vérification critique pour éviter l'utilisation de secrets par défaut
+if not DB_HOST or not DB_USER or not DB_PASSWORD:
+    raise ValueError("Erreur de sécurité : Les variables d'environnement DB_HOST, DB_USER et DB_PASSWORD doivent être définies.")
 
 def wait_and_load():
     print("Connexion à la base de données PostgreSQL...")
