@@ -4,10 +4,10 @@ import psycopg2
 
 # Récupération sécurisée sans valeurs par défaut sensibles en dur
 DB_HOST = os.getenv("DB_HOST")
-DB_NAME = os.getenv("DB_NAME", "artisell") # Nom de DB tolérable par défaut si nécessaire
+DB_NAME = os.getenv("DB_NAME") # Nom de DB tolérable par défaut si nécessaire
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_PORT = os.getenv("DB_PORT", "5432")
+DB_PORT = os.getenv("DB_PORT")
 
 # Vérification critique pour éviter l'utilisation de secrets par défaut
 if not DB_HOST or not DB_USER or not DB_PASSWORD:
