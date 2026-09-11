@@ -4,7 +4,7 @@ import psycopg2
 
 # Récupération sécurisée sans valeurs par défaut sensibles en dur
 DB_HOST = os.getenv("DB_HOST")
-DB_NAME = os.getenv("DB_NAME") # Nom de DB tolérable par défaut si nécessaire
+DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_PORT = os.getenv("DB_PORT")
